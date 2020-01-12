@@ -1,3 +1,8 @@
+/*This class is copied from the following link:
+* https://medium.com/@pankaj_kumar_singh/datamigration-writing-a-csv-parser-with-kafkaproducer-part-1-6729ef69dc19
+* Author: Pankaj Kumar Singh
+* */
+
 package com.github.hamzanasirr.kafka.tutorial1;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
