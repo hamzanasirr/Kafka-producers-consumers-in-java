@@ -1,0 +1,2 @@
+This is a very small hobby project which I made just for fun by following the guidance of Stephane Maarek.
+This small Java app includes consumers and producers for a certain kafka topic which I created on a virtual machine in my local environment.
