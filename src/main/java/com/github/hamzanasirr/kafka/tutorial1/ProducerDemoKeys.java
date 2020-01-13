@@ -24,7 +24,7 @@ public class ProducerDemoKeys {
         String topic = "third_topic";
         // Produce record to a topic 10 times.
         for (int i = 0; i < 10; i++) {
-            String key = "New Key " + i;
+            String key = "New Key " + i * 10;
             String value = "Java Producer produced data. " + i;
             // Create a producer record
             ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, value);
