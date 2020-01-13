@@ -10,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Properties;
 
@@ -33,7 +32,7 @@ public class ConsumerDemoAssignSeek {
         /* Assign and seek are mostly used to replay data or fetch a specific message */
         // Assign
         TopicPartition partition = new TopicPartition(TOPIC, 0);
-        consumer.assign(Arrays.asList(partition));
+        consumer.assign(Collections.singletonList(partition));
 
         // Seek
         long offsetToReadFrom = 15L;
