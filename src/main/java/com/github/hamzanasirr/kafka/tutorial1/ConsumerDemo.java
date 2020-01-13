@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.Properties;
 
 public class ConsumerDemo {
-    private static final String BOOTSTRAP_SERVERS = "192.168.100.47:9092";
+    private static final String BOOTSTRAP_SERVERS = Constants.BOOTSTRAP_SERVER_IP;
     private static final Logger LOGGER = LoggerFactory.getLogger(ConsumerDemo.class);
     private static final String GROUP_ID = "my-third-application";
     private static final String topic = "first_topic";

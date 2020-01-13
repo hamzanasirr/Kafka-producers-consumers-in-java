@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Properties;
 
 public class ProducerDemoWithCallBack {
-    private static final String BOOTSTRAP_SERVERS = "192.168.100.47:9092"; // Replace it with your own ip:port
+    private static final String BOOTSTRAP_SERVERS = Constants.BOOTSTRAP_SERVER_IP;
     public static final Logger logger = LoggerFactory.getLogger(ProducerDemoWithCallBack.class);
 
     public static void main(String[] args) {

@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Properties;
 
 public class ProducerDemoKeys {
-    private static final String BOOTSTRAP_SERVERS = "192.168.100.47:9092";
+    private static final String BOOTSTRAP_SERVERS = Constants.BOOTSTRAP_SERVER_IP;
     public static final Logger logger = LoggerFactory.getLogger(ProducerDemoKeys.class);
 
     public static void main(String[] args) {
