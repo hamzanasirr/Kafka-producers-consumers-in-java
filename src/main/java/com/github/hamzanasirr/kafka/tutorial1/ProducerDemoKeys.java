@@ -21,29 +21,27 @@ public class ProducerDemoKeys {
         // Create the producer
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 
-        String topic = "first_topic";
+        String topic = "third_topic";
         // Produce record to a topic 10 times.
         for (int i = 0; i < 10; i++) {
-            String key = "Key " + i;
-            String value = "Callback Java Consumer W/KEY";
+            String key = "New Key " + i;
+            String value = "Java Producer produced data. " + i;
             // Create a producer record
             ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, value);
             // Send data - Asynchronous
             // producer.send(record);
-            producer.send(record, new Callback() {
-                // Executes every time a record is successfully sent or an exception is thrown.
-                public void onCompletion(RecordMetadata recordMetadata, Exception e) {
-                    if (e == null) {
-                        // Successfully sent
-                        logger.info("Received new metadata: " + "\n" +
-                                "Topic: " + recordMetadata.topic() + "\n" +
-                                "Partition: " + recordMetadata.partition() + "\n" +
-                                "Offset: " + recordMetadata.offset() + "\n" +
-                                "Timestamp: " + recordMetadata.timestamp());
-                    } else {
-                        // Deal with the error
-                        logger.error("Error while producing: " + e);
-                    }
+            // Executes every time a record is successfully sent or an exception is thrown.
+            producer.send(record, (recordMetadata, e) -> {
+                if (e == null) {
+                    // Successfully sent
+                    logger.info("Received new metadata: " + "\n" +
+                            "Topic: " + recordMetadata.topic() + "\n" +
+                            "Partition: " + recordMetadata.partition() + "\n" +
+                            "Offset: " + recordMetadata.offset() + "\n" +
+                            "Timestamp: " + recordMetadata.timestamp());
+                } else {
+                    // Deal with the error
+                    logger.error("Error while producing: " + e);
                 }
             });
         }

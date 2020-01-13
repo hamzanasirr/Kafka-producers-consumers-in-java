@@ -15,8 +15,8 @@ import java.util.Properties;
 public class ConsumerDemo {
     private static final String BOOTSTRAP_SERVERS = Constants.BOOTSTRAP_SERVER_IP;
     private static final Logger LOGGER = LoggerFactory.getLogger(ConsumerDemo.class);
-    private static final String GROUP_ID = "my-third-application";
-    private static final String topic = "first_topic";
+    private static final String GROUP_ID = "my-fourth-application";
+    private static final String TOPIC = "third_topic";
 
     public static void main(String[] args) {
         // Setting the properties of the consumer
@@ -31,16 +31,16 @@ public class ConsumerDemo {
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
 
         // Subscribe the consumer to topic(s)
-        consumer.subscribe(Collections.singleton(topic)); // Using Collection.singleton() means we only subscribe to one topic. We can subscribe to more topics using Arrays.asList().
+        consumer.subscribe(Collections.singleton(TOPIC)); // Using Collection.singleton() means we only subscribe to one topic. We can subscribe to more topics using Arrays.asList().
 
         // Poll for new data
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
             for (ConsumerRecord record : records) {
                 LOGGER.info("Key: " + record.key() + "\n" +
-                        "Value: " + record.value() + "\n" +
-                        "Partition: " + record.partition() + "\n" +
-                        "Offset" + record.offset());
+                            "Value: " + record.value() + "\n" +
+                            "Partition: " + record.partition() + "\n" +
+                            "Offset" + record.offset());
             }
         }
     }
