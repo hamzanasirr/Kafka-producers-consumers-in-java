@@ -33,6 +33,11 @@ public class ConsumerDemoWithThread {
         Runtime.getRuntime().addShutdownHook(new Thread( () -> {
             LOGGER.info("Caught shutdown hook");
             ((ConsumerThread) consumerThread).shutDown();
+            try {
+                latch.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         } ));
 
         try {
