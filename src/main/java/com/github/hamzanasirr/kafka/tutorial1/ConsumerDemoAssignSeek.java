@@ -54,6 +54,7 @@ public class ConsumerDemoAssignSeek {
                             "Offset" + record.offset());
                 if (numberOfMessagesReadSoFar >= numberOfMessagesToread) {
                     keepOnReading = false;
+                    break; // to exit the for loop
                 }
             }
         }
