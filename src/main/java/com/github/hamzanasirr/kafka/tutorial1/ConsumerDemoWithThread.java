@@ -47,6 +47,7 @@ public class ConsumerDemoWithThread {
         } finally {
             LOGGER.info("Application is closing");
         }
+        LOGGER.info("Application has exited");
     }
 }
 
